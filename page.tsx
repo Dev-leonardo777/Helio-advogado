@@ -1,0 +1,37 @@
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { WhatsAppLink } from "@/components/layout/whatsapp-link";
+import { Hero } from "@/components/sections/hero";
+import { PracticeAreas } from "@/components/sections/practice-areas";
+import { Awards } from "@/components/sections/awards";
+import { LawyerShowcase } from "@/components/sections/lawyer-showcase";
+import { Gallery } from "@/components/sections/gallery";
+import { Team } from "@/components/sections/team";
+import { Differentials } from "@/components/sections/differentials";
+import { Contact } from "@/components/sections/contact";
+import { contactAreas } from "@/lib/contact-validation";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function HomePage({ searchParams }: { searchParams: Promise<{ area?: string | string[] }> }) {
+  const { area } = await searchParams;
+  const initialArea = typeof area === "string" && Object.hasOwn(contactAreas, area) ? area : "";
+  return (
+    <>
+      <Header />
+      <main id="conteudo">
+        <Hero />
+        <PracticeAreas />
+        <Awards />
+        <LawyerShowcase />
+        <Gallery />
+        <Team />
+        <Differentials />
+        <Contact key={initialArea} initialArea={initialArea} />
+      </main>
+      <Footer />
+      <WhatsAppLink />
+    </>
+  );
+}
