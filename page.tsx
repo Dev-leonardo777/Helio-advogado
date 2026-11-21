@@ -10,6 +10,7 @@ import { Team } from "@/components/sections/team";
 import { Differentials } from "@/components/sections/differentials";
 import { Contact } from "@/components/sections/contact";
 import { contactAreas } from "@/lib/contact-validation";
+import { getSiteData } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -17,15 +18,17 @@ export const revalidate = 0;
 export default async function HomePage({ searchParams }: { searchParams: Promise<{ area?: string | string[] }> }) {
   const { area } = await searchParams;
   const initialArea = typeof area === "string" && Object.hasOwn(contactAreas, area) ? area : "";
+  const siteData = await getSiteData();
+
   return (
     <>
       <Header />
       <main id="conteudo">
-        <Hero />
+        <Hero initialData={siteData?.hero} />
         <PracticeAreas />
-        <Awards />
-        <LawyerShowcase />
-        <Gallery />
+        <Awards initialData={siteData?.award} />
+        <LawyerShowcase initialData={siteData?.about} />
+        <Gallery initialImages={siteData?.gallery} />
         <Team />
         <Differentials />
         <Contact key={initialArea} initialArea={initialArea} />
