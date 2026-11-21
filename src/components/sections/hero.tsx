@@ -1,19 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { getWhatsAppUrl, siteConfig } from "@/config/site";
-import { getSiteData } from "@/lib/site-data";
+
+interface HeroData {
+  role: string;
+  titleLine1: string;
+  titleLine2: string;
+  scope: string;
+  ctaText: string;
+  quote: string;
+  image: string;
+}
+
+const defaultHero: HeroData = {
+  role: "Advocacia criminal",
+  titleLine1: "Hélio",
+  titleLine2: "Aquino",
+  scope: "Defesa no Tribunal do Júri, em prisões em flagrante e em processos da Lei de Drogas.",
+  ctaText: "Falar com o advogado",
+  quote: "Defender é humanizar.",
+  image: "/images/helio-juri.jpg",
+};
 
 export function Hero() {
-  const data = getSiteData();
-  const hero = data?.hero || {
-    role: "Advocacia criminal",
-    titleLine1: "Hélio",
-    titleLine2: "Aquino",
-    scope: "Defesa no Tribunal do Júri, em prisões em flagrante e em processos da Lei de Drogas.",
-    ctaText: "Falar com o advogado",
-    quote: "Defender é humanizar.",
-    image: "/images/helio-juri.jpg"
-  };
+  const [hero, setHero] = useState<HeroData>(defaultHero);
+
+  useEffect(() => {
+    fetch("/api/admin/content")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json?.hero) {
+          setHero((prev) => ({ ...prev, ...json.hero }));
+        }
+      })
+      .catch((err) => console.error("Erro ao carregar Hero:", err));
+  }, []);
 
   const imageSrc = hero.image || "/images/helio-juri.jpg";
 

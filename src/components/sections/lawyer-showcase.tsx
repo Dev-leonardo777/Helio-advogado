@@ -1,20 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, ShieldCheck, Scale, MessagesSquare, Award, ChevronRight, Quote } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionLabel } from "@/components/ui/section-label";
 import { siteConfig } from "@/config/site";
-import { getSiteData } from "@/lib/site-data";
+
+interface AboutData {
+  titleLine1: string;
+  titleLine2: string;
+  lead: string;
+  question1: string;
+  question2: string;
+  image: string;
+}
+
+const defaultAbout: AboutData = {
+  titleLine1: "Defender é",
+  titleLine2: "humanizar",
+  lead: "É assim que Hélio Aquino descreve seu trabalho no Tribunal do Júri — trazendo a pessoa, suas circunstâncias e a dignidade humana para o centro dos debates.",
+  question1: "O que as provas dos autos realmente permitem afirmar com certeza e rigor técnico?",
+  question2: "O que os jurados precisam conhecer sobre a história da pessoa que está sendo julgada?",
+  image: "/images/helio-congresso.jpg",
+};
 
 export function LawyerShowcase() {
-  const data = getSiteData();
-  const about = data?.about || {
-    titleLine1: "Defender é",
-    titleLine2: "humanizar",
-    lead: "É assim que Hélio Aquino descreve seu trabalho no Tribunal do Júri — trazendo a pessoa, suas circunstâncias e a dignidade humana para o centro dos debates.",
-    question1: "O que as provas dos autos realmente permitem afirmar com certeza e rigor técnico?",
-    question2: "O que os jurados precisam conhecer sobre a história da pessoa que está sendo julgada?",
-    image: "/images/helio-congresso.jpg"
-  };
+  const [about, setAbout] = useState<AboutData>(defaultAbout);
+
+  useEffect(() => {
+    fetch("/api/admin/content")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json?.about) {
+          setAbout((prev) => ({ ...prev, ...json.about }));
+        }
+      })
+      .catch((err) => console.error("Erro ao carregar O Advogado:", err));
+  }, []);
 
   const imageSrc = about.image || "/images/helio-congresso.jpg";
 

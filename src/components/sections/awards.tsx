@@ -1,20 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Award, ArrowUpRight, Trophy, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionLabel } from "@/components/ui/section-label";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
-import { getSiteData } from "@/lib/site-data";
+
+interface AwardData {
+  badge: string;
+  titleLine1: string;
+  titleLine2: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
+const defaultAward: AwardData = {
+  badge: "Prêmio Profissionais do Ano",
+  titleLine1: "Melhores",
+  titleLine2: "de 2026",
+  category: "Advogado Criminalista",
+  description: "Homenagem e premiação concedida ao Dr. Hélio Aquino pelo destaque e excelência na atuação combativa e humanizada na advocacia criminal, com ênfase nas defesas no Tribunal do Júri e na garantia das prerrogativas constitucionais.",
+  image: "/images/premio-melhores-2026.jpg",
+};
 
 export function Awards() {
-  const data = getSiteData();
-  const award = data?.award || {
-    badge: "Prêmio Profissionais do Ano",
-    titleLine1: "Melhores",
-    titleLine2: "de 2026",
-    category: "Advogado Criminalista",
-    description: "Homenagem e premiação concedida ao Dr. Hélio Aquino pelo destaque e excelência na atuação combativa e humanizada na advocacia criminal, com ênfase nas defesas no Tribunal do Júri e na garantia das prerrogativas constitucionais.",
-    image: "/images/premio-melhores-2026.jpg"
-  };
+  const [award, setAward] = useState<AwardData>(defaultAward);
+
+  useEffect(() => {
+    fetch("/api/admin/content")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json?.award) {
+          setAward((prev) => ({ ...prev, ...json.award }));
+        }
+      })
+      .catch((err) => console.error("Erro ao carregar Prêmio:", err));
+  }, []);
 
   const imageSrc = award.image || "/images/premio-melhores-2026.jpg";
 

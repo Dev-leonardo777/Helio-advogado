@@ -11,6 +11,9 @@ import { Differentials } from "@/components/sections/differentials";
 import { Contact } from "@/components/sections/contact";
 import { contactAreas } from "@/lib/contact-validation";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function HomePage({ searchParams }: { searchParams: Promise<{ area?: string | string[] }> }) {
   const { area } = await searchParams;
   const initialArea = typeof area === "string" && Object.hasOwn(contactAreas, area) ? area : "";
