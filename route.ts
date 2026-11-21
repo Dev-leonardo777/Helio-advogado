@@ -18,7 +18,6 @@ export async function POST(request: Request) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Gera um nome seguro de arquivo ou usa o targetName
     let fileName = targetName ? targetName.trim() : "";
     if (!fileName) {
       const ext = path.extname(file.name) || ".jpg";
@@ -27,12 +26,14 @@ export async function POST(request: Request) {
     }
     const cleanFileName = path.basename(fileName);
 
-    // 1. Se estiver na nuvem da Vercel (BLOB_READ_WRITE_TOKEN presente)
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
+    // 1. Prioridade: Se o token do Vercel Blob existir (ambiente de nuvem)
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    if (token) {
       try {
         const blob = await put(`images/${cleanFileName}`, buffer, {
           access: "public",
           contentType: file.type || "image/jpeg",
+          token: token,
         });
 
         return NextResponse.json({
@@ -40,28 +41,40 @@ export async function POST(request: Request) {
           message: "Imagem enviada e hospedada na nuvem com sucesso!",
           url: blob.url,
         });
-      } catch (blobErr) {
-        console.error("Erro no upload para Vercel Blob:", blobErr);
+      } catch (blobErr: unknown) {
+        const errMessage = blobErr instanceof Error ? blobErr.message : String(blobErr);
+        console.error("Erro no Vercel Blob:", errMessage);
+        return NextResponse.json({
+          success: false,
+          message: `Falha no armazenamento em nuvem: ${errMessage}`,
+        }, { status: 500 });
       }
     }
 
-    // 2. Fallback: Grava no disco local (desenvolvimento / ambiente local)
-    const uploadDir = path.join(process.cwd(), "public", "images");
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
+    // 2. Ambiente local (fallback)
+    try {
+      const uploadDir = path.join(process.cwd(), "public", "images");
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+      const filePath = path.join(uploadDir, cleanFileName);
+      fs.writeFileSync(filePath, buffer);
+
+      return NextResponse.json({
+        success: true,
+        message: "Imagem enviada localmente com sucesso!",
+        url: `/images/${cleanFileName}`,
+      });
+    } catch (fsErr) {
+      console.error("Erro ao gravar em disco local:", fsErr);
+      return NextResponse.json({
+        success: false,
+        message: "N├úo foi poss├¡vel gravar no disco. Configure o Vercel Blob no painel da Vercel para uploads em produ├º├úo.",
+      }, { status: 500 });
     }
-
-    const filePath = path.join(uploadDir, cleanFileName);
-    fs.writeFileSync(filePath, buffer);
-
-    const publicUrl = `/images/${cleanFileName}`;
-    return NextResponse.json({
-      success: true,
-      message: "Imagem enviada localmente com sucesso!",
-      url: publicUrl,
-    });
-  } catch (error) {
-    console.error("Erro no upload:", error);
-    return NextResponse.json({ success: false, message: "Erro ao processar o upload da imagem" }, { status: 500 });
+  } catch (error: unknown) {
+    const errMessage = error instanceof Error ? error.message : String(error);
+    console.error("Erro geral no upload:", errMessage);
+    return NextResponse.json({ success: false, message: `Erro ao processar arquivo: ${errMessage}` }, { status: 500 });
   }
 }
