@@ -19,7 +19,9 @@ export const siteConfig = {
 export const navigation = [
   { label: "Início", href: "/#inicio", id: "inicio" },
   { label: "Atuação", href: "/#atuacao", id: "atuacao" },
+  { label: "Prêmio 2026", href: "/#premios", id: "premios" },
   { label: "O advogado", href: "/#escritorio", id: "escritorio" },
+  { label: "Galeria Forense", href: "/#galeria", id: "galeria" },
   { label: "Na mídia", href: "/#equipe", id: "equipe" },
   { label: "Princípios", href: "/#diferenciais", id: "diferenciais" },
   { label: "Contato", href: "/#contato", id: "contato" },

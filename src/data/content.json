@@ -1,0 +1,223 @@
+{
+  "siteConfig": {
+    "name": "Hélio Aquino",
+    "role": "Advogado Criminalista",
+    "description": "Hélio Aquino é advogado criminalista com atuação no Tribunal do Júri, em prisões em flagrante e em processos relacionados à Lei de Drogas.",
+    "phone": "(62) 99370-8424",
+    "whatsapp": "5562993708424",
+    "email": "contato@helioaquino.adv.br",
+    "address": "Anápolis - GO",
+    "registration": "OAB/GO 00.000",
+    "instagram": "https://www.instagram.com/helioaquinoadvogado/",
+    "maps": "https://www.google.com/maps/place/H%C3%A9lio+Aquino+Advogado+Criminalista/data=!4m7!3m6!1s0x935ea5dd537b761d:0xb2dccac695239aab!8m2!3d-16.3318081!4d-48.9613813!16s%2Fg%2F11h231bcfp!19sChIJHXZ7U92lXpMRq5ojlcbK3LI?hl=pt-BR"
+  },
+  "hero": {
+    "role": "Advocacia criminal",
+    "titleLine1": "Hélio",
+    "titleLine2": "Aquino",
+    "scope": "Defesa no Tribunal do Júri, em prisões em flagrante e em processos da Lei de Drogas.",
+    "ctaText": "Falar com o advogado",
+    "quote": "Defender é humanizar.",
+    "image": "/images/helio-juri.jpg"
+  },
+  "award": {
+    "badge": "Prêmio Profissionais do Ano",
+    "titleLine1": "Melhores",
+    "titleLine2": "de 2026",
+    "category": "Advogado Criminalista",
+    "description": "Homenagem e premiação concedida ao Dr. Hélio Aquino pelo destaque e excelência na atuação combativa e humanizada na advocacia criminal, com ênfase nas defesas no Tribunal do Júri e na garantia das prerrogativas constitucionais.",
+    "image": "/images/premio-melhores-2026.jpg"
+  },
+  "about": {
+    "titleLine1": "Defender é",
+    "titleLine2": "humanizar",
+    "lead": "É assim que Hélio Aquino descreve seu trabalho no Tribunal do Júri — trazendo a pessoa, suas circunstâncias e a dignidade humana para o centro dos debates.",
+    "question1": "O que as provas dos autos realmente permitem afirmar com certeza e rigor técnico?",
+    "question2": "O que os jurados precisam conhecer sobre a história da pessoa que está sendo julgada?",
+    "image": "/images/helio-congresso.jpg"
+  },
+  "gallery": [
+    {
+      "id": 1,
+      "src": "/images/1.jpg",
+      "title": "Atuação no Tribunal do Júri",
+      "tag": "Plenário",
+      "context": "Sustentação oral e presença técnica perante os jurados"
+    },
+    {
+      "id": 2,
+      "src": "/images/2.jpg",
+      "title": "Defesa das Garantias Fundamentais",
+      "tag": "Sustentação",
+      "context": "A palavra em defesa dos direitos constitucionais"
+    },
+    {
+      "id": 3,
+      "src": "/images/3.jpg",
+      "title": "Prerrogativas da Advocacia",
+      "tag": "Processo",
+      "context": "Postura vigilante e combate técnico em plenário"
+    },
+    {
+      "id": 4,
+      "src": "/images/4.jpg",
+      "title": "Análise Minuciosa das Provas",
+      "tag": "Estratégia",
+      "context": "Exame rigoroso dos laudos e depoimentos"
+    },
+    {
+      "id": 5,
+      "src": "/images/5.jpg",
+      "title": "Presença e Prerrogativa Forense",
+      "tag": "Tribunal",
+      "context": "Atuação combativa em cada fase procedimental"
+    },
+    {
+      "id": 6,
+      "src": "/images/6.jpg",
+      "title": "Debate e Contraditório",
+      "tag": "Debate",
+      "context": "Esclarecimento de pontos controversos perante o conselho"
+    },
+    {
+      "id": 7,
+      "src": "/images/7.jpg",
+      "title": "Exposição Fática em Plenário",
+      "tag": "Plenário",
+      "context": "Reconstrução coerente dos fatos sob a ótica da defesa"
+    },
+    {
+      "id": 8,
+      "src": "/images/8.jpg",
+      "title": "A Voz que Humaniza o Julgamento",
+      "tag": "Tribuna",
+      "context": "Aproximando a história de vida da pessoa aos jurados"
+    },
+    {
+      "id": 9,
+      "src": "/images/9.jpg",
+      "title": "Compromisso Ético e Ampla Defesa",
+      "tag": "Ética",
+      "context": "O dever indeclinável de assegurar a plenitude de defesa"
+    },
+    {
+      "id": 10,
+      "src": "/images/10.jpg",
+      "title": "Preparação Estratégica",
+      "tag": "Bastidores",
+      "context": "Estudo detalhado de autos volumosos e teses penais"
+    },
+    {
+      "id": 11,
+      "src": "/images/11.jpg",
+      "title": "Intervenções Pontuais",
+      "tag": "Debate",
+      "context": "Garantia do respeito às regras do jogo processual"
+    },
+    {
+      "id": 12,
+      "src": "/images/12.jpg",
+      "title": "Presunção de Inocência",
+      "tag": "Princípio",
+      "context": "Defesa firme de que a dúvida milita em favor do réu"
+    },
+    {
+      "id": 13,
+      "src": "/images/13.jpg",
+      "title": "Clareza e Conexão no Júri",
+      "tag": "Tribuna",
+      "context": "Comunicação assertiva e acessível aos jurados"
+    },
+    {
+      "id": 14,
+      "src": "/images/14.jpg",
+      "title": "Exame Crítico de Perícias",
+      "tag": "Técnica",
+      "context": "Desconstrução fundamentada de elementos acusatórios"
+    },
+    {
+      "id": 15,
+      "src": "/images/15.jpg",
+      "title": "Tribuna da Defesa",
+      "tag": "Plenário",
+      "context": "Exercício pleno da advocacia criminal com vocação"
+    },
+    {
+      "id": 16,
+      "src": "/images/16.jpg",
+      "title": "Serenidade e Firmeza",
+      "tag": "Veredito",
+      "context": "Equilíbrio emocional nas horas decisivas da sessão"
+    },
+    {
+      "id": 17,
+      "src": "/images/17.jpg",
+      "title": "Diálogo Institucional",
+      "tag": "Magistratura",
+      "context": "Respeito mútuo entre defesa, promotoria e juízo"
+    },
+    {
+      "id": 18,
+      "src": "/images/18.jpg",
+      "title": "Sessão Solene de Julgamento",
+      "tag": "Comunidade",
+      "context": "O conselho de sentença reunido para julgar seus pares"
+    },
+    {
+      "id": 19,
+      "src": "/images/19.jpg",
+      "title": "A Estrutura da Justiça Penal",
+      "tag": "Cenário",
+      "context": "O rito que protege a sociedade e o indivíduo"
+    },
+    {
+      "id": 20,
+      "src": "/images/20.jpg",
+      "title": "Atuação Criminal Especializada",
+      "tag": "Defesa",
+      "context": "Experiência consolidada em crimes dolosos contra a vida"
+    },
+    {
+      "id": 21,
+      "src": "/images/21.jpg",
+      "title": "Bancada da Defesa",
+      "tag": "Estratégia",
+      "context": "Organização probatória e notas de sustenção"
+    },
+    {
+      "id": 22,
+      "src": "/images/22.jpg",
+      "title": "Presença Forense Resoluta",
+      "tag": "Tribuna",
+      "context": "Defendendo a dignidade humana em cada manifestação"
+    },
+    {
+      "id": 23,
+      "src": "/images/23.jpg",
+      "title": "A Força da Palavra",
+      "tag": "Plenário",
+      "context": "Oratória jurídica fundamentada na doutrina e jurisprudência"
+    },
+    {
+      "id": 24,
+      "src": "/images/24.jpg",
+      "title": "Ministério Constitucional",
+      "tag": "Advocacia",
+      "context": "Artigo 133 da CF: indispensável à administração da justiça"
+    },
+    {
+      "id": 25,
+      "src": "/images/25.jpg",
+      "title": "Histórico Forense",
+      "tag": "Acervo",
+      "context": "Registros de atuações em diversas comarcas"
+    },
+    {
+      "id": 26,
+      "src": "/images/26.jpg",
+      "title": "Dr. Hélio Aquino",
+      "tag": "Perfil",
+      "context": "Advocacia criminal com rigor técnico e sensibilidade humana"
+    }
+  ]
+}
