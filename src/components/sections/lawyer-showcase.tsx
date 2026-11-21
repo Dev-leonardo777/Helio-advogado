@@ -25,8 +25,11 @@ const defaultAbout: AboutData = {
   image: "/images/helio-congresso.jpg",
 };
 
-export function LawyerShowcase() {
-  const [about, setAbout] = useState<AboutData>(defaultAbout);
+export function LawyerShowcase({ initialData }: { initialData?: Partial<AboutData> }) {
+  const [about, setAbout] = useState<AboutData>({
+    ...defaultAbout,
+    ...(initialData || {}),
+  });
 
   useEffect(() => {
     fetch("/api/admin/content")

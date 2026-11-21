@@ -25,8 +25,11 @@ const defaultAward: AwardData = {
   image: "/images/premio-melhores-2026.jpg",
 };
 
-export function Awards() {
-  const [award, setAward] = useState<AwardData>(defaultAward);
+export function Awards({ initialData }: { initialData?: Partial<AwardData> }) {
+  const [award, setAward] = useState<AwardData>({
+    ...defaultAward,
+    ...(initialData || {}),
+  });
 
   useEffect(() => {
     fetch("/api/admin/content")

@@ -25,8 +25,11 @@ const defaultHero: HeroData = {
   image: "/images/helio-juri.jpg",
 };
 
-export function Hero() {
-  const [hero, setHero] = useState<HeroData>(defaultHero);
+export function Hero({ initialData }: { initialData?: Partial<HeroData> }) {
+  const [hero, setHero] = useState<HeroData>({
+    ...defaultHero,
+    ...(initialData || {}),
+  });
 
   useEffect(() => {
     fetch("/api/admin/content")

@@ -1,223 +1,224 @@
 {
   "siteConfig": {
-    "name": "Hélio Aquino",
-    "role": "Advogado Criminalista",
-    "description": "Hélio Aquino é advogado criminalista com atuação no Tribunal do Júri, em prisões em flagrante e em processos relacionados à Lei de Drogas.",
-    "phone": "(62) 99370-8424",
-    "whatsapp": "5562993708424",
-    "email": "contato@helioaquino.adv.br",
-    "address": "Anápolis - GO",
-    "registration": "OAB/GO 00.000",
-    "instagram": "https://www.instagram.com/helioaquinoadvogado/",
-    "maps": "https://www.google.com/maps/place/H%C3%A9lio+Aquino+Advogado+Criminalista/data=!4m7!3m6!1s0x935ea5dd537b761d:0xb2dccac695239aab!8m2!3d-16.3318081!4d-48.9613813!16s%2Fg%2F11h231bcfp!19sChIJHXZ7U92lXpMRq5ojlcbK3LI?hl=pt-BR"
+    "name": "Hélio Valença Advocacia Criminal",
+    "shortName": "Valença Advocacia",
+    "contact": {
+      "phone": "+55 81 99999-9999",
+      "phoneDisplay": "(81) 99999-9999",
+      "whatsappNumber": "5581999999999",
+      "email": "contato@heliovalenca.adv.br",
+      "address": "Av. Agamenon Magalhães, 4567, Sala 1201 - Derby, Recife - PE",
+      "oabRegistration": "OAB/PE 00.000"
+    },
+    "social": {
+      "instagram": "https://instagram.com/heliovalenca.adv",
+      "linkedin": "https://linkedin.com/in/heliovalenca"
+    }
   },
   "hero": {
-    "role": "Advocacia criminal zzzzz",
-    "titleLine1": "Hélio",
-    "titleLine2": "Aquino",
-    "scope": "Defesa no Tribunal do Júri, em prisões em flagrante e em processos da Lei de Drogas.",
-    "ctaText": "Falar com o advogado",
-    "quote": "Defender é humanizar.",
-    "image": "/images/helio-juri.jpg"
+    "badge": "Direito Penal Estratégico",
+    "titlePrefix": "Defesa Penal de Alta Complexidade,",
+    "titleHighlight": "Técnica e Humanizada.",
+    "role": "Advocacia Criminal Especializada",
+    "description": "Atuação combativa, sigilosa e estratégica em investigações, inquéritos policiais, medidas cautelares, Tribunal do Júri e instâncias recursais superiores.",
+    "primaryCta": "Fale com o Advogado",
+    "secondaryCta": "Conheça Nossa Atuação",
+    "image": "/images/helio-juri.jpg",
+    "imageAlt": "Dr. Hélio Valença em atuação no Tribunal do Júri",
+    "stats": [
+      {
+        "value": "10+",
+        "label": "Anos de experiência"
+      },
+      {
+        "value": "24/7",
+        "label": "Plantão para urgências"
+      },
+      {
+        "value": "100%",
+        "label": "Sigilo e discrição"
+      }
+    ]
   },
   "award": {
-    "badge": "Prêmio Profissionais do Ano",
-    "titleLine1": "Melhores",
-    "titleLine2": "de 2026",
-    "category": "Advogado Criminalista",
-    "description": "Homenagem e premiação concedida ao Dr. Hélio Aquino pelo destaque e excelência na atuação combativa e humanizada na advocacia criminal, com ênfase nas defesas no Tribunal do Júri e na garantia das prerrogativas constitucionais.",
-    "image": "/images/premio-melhores-2026.jpg"
+    "tag": "Reconhecimento & Excelência",
+    "title": "Melhores de 2026: Referência em Advocacia Criminal",
+    "description": "Homenagem que consagra a trajetória ética, técnica e combativa do Dr. Hélio Valença, reconhecido como destaque absoluto na advocacia criminal pela liderança e dedicação incansável na defesa das garantias constitucionais.",
+    "quote": "A verdadeira distinção da advocacia penal não repousa em prêmios, mas na intransigente lealdade à dignidade humana perante o poder estatal.",
+    "image": "/images/premio-melhores-2026.jpg",
+    "imageAlt": "Prêmio Melhores de 2026 - Destaque em Advocacia Criminal"
   },
   "about": {
-    "titleLine1": "Defender é",
-    "titleLine2": "humanizar",
-    "lead": "É assim que Hélio Aquino descreve seu trabalho no Tribunal do Júri — trazendo a pessoa, suas circunstâncias e a dignidade humana para o centro dos debates.",
-    "question1": "O que as provas dos autos realmente permitem afirmar com certeza e rigor técnico?",
-    "question2": "O que os jurados precisam conhecer sobre a história da pessoa que está sendo julgada?",
-    "image": "/images/helio-congresso.jpg"
+    "title": "Defender é Humanizar",
+    "subtitle": "Sobre o Advogado",
+    "paragraphs": [
+      "A advocacia criminal de excelência exige mais do que domínio dogmático: demanda sensibilidade, serenidade estratégica e coragem intransigente diante dos momentos mais desafiadores da vida de um indivíduo.",
+      "Com sólida experiência em inquéritos complexos, júris populares e tribunais superiores, Dr. Hélio Valença pauta sua carreira pela defesa intransigente das garantias fundamentais e do devido processo legal."
+    ],
+    "image": "/images/helio-congresso.jpg",
+    "imageAlt": "Dr. Hélio Valença palestrando no II Congresso Intercontinental de Direito Penal",
+    "credentials": [
+      "Especialista em Ciências Criminais e Processo Penal",
+      "Membro da Comissão de Defesa das Prerrogativas",
+      "Atuação de destaque em Cortes Estaduais e Tribunais Superiores (STJ e STF)"
+    ]
   },
   "gallery": [
     {
       "id": 1,
       "src": "/images/1.jpg",
-      "title": "Atuação no Tribunal do Júri",
-      "tag": "Plenário",
-      "context": "Sustentação oral e presença técnica perante os jurados"
+      "alt": "Atuação jurídica 1",
+      "category": "Tribunal do Júri"
     },
     {
       "id": 2,
       "src": "/images/2.jpg",
-      "title": "Defesa das Garantias Fundamentais",
-      "tag": "Sustentação",
-      "context": "A palavra em defesa dos direitos constitucionais"
+      "alt": "Atuação jurídica 2",
+      "category": "Congresso Internacional"
     },
     {
       "id": 3,
       "src": "/images/3.jpg",
-      "title": "Prerrogativas da Advocacia",
-      "tag": "Processo",
-      "context": "Postura vigilante e combate técnico em plenário"
+      "alt": "Atuação jurídica 3",
+      "category": "Sustentação Oral"
     },
     {
       "id": 4,
       "src": "/images/4.jpg",
-      "title": "Análise Minuciosa das Provas",
-      "tag": "Estratégia",
-      "context": "Exame rigoroso dos laudos e depoimentos"
+      "alt": "Atuação jurídica 4",
+      "category": "Audiência de Instrução"
     },
     {
       "id": 5,
       "src": "/images/5.jpg",
-      "title": "Presença e Prerrogativa Forense",
-      "tag": "Tribunal",
-      "context": "Atuação combativa em cada fase procedimental"
+      "alt": "Atuação jurídica 5",
+      "category": "Tribunal de Justiça"
     },
     {
       "id": 6,
       "src": "/images/6.jpg",
-      "title": "Debate e Contraditório",
-      "tag": "Debate",
-      "context": "Esclarecimento de pontos controversos perante o conselho"
+      "alt": "Atuação jurídica 6",
+      "category": "Reunião Estratégica"
     },
     {
       "id": 7,
       "src": "/images/7.jpg",
-      "title": "Exposição Fática em Plenário",
-      "tag": "Plenário",
-      "context": "Reconstrução coerente dos fatos sob a ótica da defesa"
+      "alt": "Atuação jurídica 7",
+      "category": "Debate Jurídico"
     },
     {
       "id": 8,
       "src": "/images/8.jpg",
-      "title": "A Voz que Humaniza o Julgamento",
-      "tag": "Tribuna",
-      "context": "Aproximando a história de vida da pessoa aos jurados"
+      "alt": "Atuação jurídica 8",
+      "category": "Conferência Penal"
     },
     {
       "id": 9,
       "src": "/images/9.jpg",
-      "title": "Compromisso Ético e Ampla Defesa",
-      "tag": "Ética",
-      "context": "O dever indeclinável de assegurar a plenitude de defesa"
+      "alt": "Atuação jurídica 9",
+      "category": "Tribunal do Júri"
     },
     {
       "id": 10,
       "src": "/images/10.jpg",
-      "title": "Preparação Estratégica",
-      "tag": "Bastidores",
-      "context": "Estudo detalhado de autos volumosos e teses penais"
+      "alt": "Atuação jurídica 10",
+      "category": "Gabinete de Defesa"
     },
     {
       "id": 11,
       "src": "/images/11.jpg",
-      "title": "Intervenções Pontuais",
-      "tag": "Debate",
-      "context": "Garantia do respeito às regras do jogo processual"
+      "alt": "Atuação jurídica 11",
+      "category": "Despacho com Magistrado"
     },
     {
       "id": 12,
       "src": "/images/12.jpg",
-      "title": "Presunção de Inocência",
-      "tag": "Princípio",
-      "context": "Defesa firme de que a dúvida milita em favor do réu"
+      "alt": "Atuação jurídica 12",
+      "category": "Palestra Magna"
     },
     {
       "id": 13,
       "src": "/images/13.jpg",
-      "title": "Clareza e Conexão no Júri",
-      "tag": "Tribuna",
-      "context": "Comunicação assertiva e acessível aos jurados"
+      "alt": "Atuação jurídica 13",
+      "category": "Tribunal Superior"
     },
     {
       "id": 14,
       "src": "/images/14.jpg",
-      "title": "Exame Crítico de Perícias",
-      "tag": "Técnica",
-      "context": "Desconstrução fundamentada de elementos acusatórios"
+      "alt": "Atuação jurídica 14",
+      "category": "Pesquisa Jurisprudencial"
     },
     {
       "id": 15,
       "src": "/images/15.jpg",
-      "title": "Tribuna da Defesa",
-      "tag": "Plenário",
-      "context": "Exercício pleno da advocacia criminal com vocação"
+      "alt": "Atuação jurídica 15",
+      "category": "Atendimento Reservado"
     },
     {
       "id": 16,
       "src": "/images/16.jpg",
-      "title": "Serenidade e Firmeza",
-      "tag": "Veredito",
-      "context": "Equilíbrio emocional nas horas decisivas da sessão"
+      "alt": "Atuação jurídica 16",
+      "category": "Plenário do Júri"
     },
     {
       "id": 17,
       "src": "/images/17.jpg",
-      "title": "Diálogo Institucional",
-      "tag": "Magistratura",
-      "context": "Respeito mútuo entre defesa, promotoria e juízo"
+      "alt": "Atuação jurídica 17",
+      "category": "Defesa Técnica"
     },
     {
       "id": 18,
       "src": "/images/18.jpg",
-      "title": "Sessão Solene de Julgamento",
-      "tag": "Comunidade",
-      "context": "O conselho de sentença reunido para julgar seus pares"
+      "alt": "Atuação jurídica 18",
+      "category": "Seminário de Processo Penal"
     },
     {
       "id": 19,
       "src": "/images/19.jpg",
-      "title": "A Estrutura da Justiça Penal",
-      "tag": "Cenário",
-      "context": "O rito que protege a sociedade e o indivíduo"
+      "alt": "Atuação jurídica 19",
+      "category": "Sala de Sessões"
     },
     {
       "id": 20,
       "src": "/images/20.jpg",
-      "title": "Atuação Criminal Especializada",
-      "tag": "Defesa",
-      "context": "Experiência consolidada em crimes dolosos contra a vida"
+      "alt": "Atuação jurídica 20",
+      "category": "Habeas Corpus"
     },
     {
       "id": 21,
       "src": "/images/21.jpg",
-      "title": "Bancada da Defesa",
-      "tag": "Estratégia",
-      "context": "Organização probatória e notas de sustenção"
+      "alt": "Atuação jurídica 21",
+      "category": "Mesa Redonda"
     },
     {
       "id": 22,
       "src": "/images/22.jpg",
-      "title": "Presença Forense Resoluta",
-      "tag": "Tribuna",
-      "context": "Defendendo a dignidade humana em cada manifestação"
+      "alt": "Atuação jurídica 22",
+      "category": "Defesa Recursal"
     },
     {
       "id": 23,
       "src": "/images/23.jpg",
-      "title": "A Força da Palavra",
-      "tag": "Plenário",
-      "context": "Oratória jurídica fundamentada na doutrina e jurisprudência"
+      "alt": "Atuação jurídica 23",
+      "category": "Conselho de Sentença"
     },
     {
       "id": 24,
       "src": "/images/24.jpg",
-      "title": "Ministério Constitucional",
-      "tag": "Advocacia",
-      "context": "Artigo 133 da CF: indispensável à administração da justiça"
+      "alt": "Atuação jurídica 24",
+      "category": "Estudo de Caso"
     },
     {
       "id": 25,
       "src": "/images/25.jpg",
-      "title": "Histórico Forense",
-      "tag": "Acervo",
-      "context": "Registros de atuações em diversas comarcas"
+      "alt": "Atuação jurídica 25",
+      "category": "Painel Criminal"
     },
     {
       "id": 26,
       "src": "/images/26.jpg",
-      "title": "Dr. Hélio Aquino",
-      "tag": "Perfil",
-      "context": "Advocacia criminal com rigor técnico e sensibilidade humana"
+      "alt": "Atuação jurídica 26",
+      "category": "Encerramento Solene"
     }
   ]
 }

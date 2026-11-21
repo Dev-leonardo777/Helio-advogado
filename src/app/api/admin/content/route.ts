@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { getSiteData, saveSiteData } from "@/lib/site-data";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
-  const data = getSiteData();
+  const data = await getSiteData();
   return NextResponse.json(data || {});
 }
 
@@ -13,12 +15,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: "Dados inválidos enviados" }, { status: 400 });
     }
 
-    const success = saveSiteData(body);
+    const success = await saveSiteData(body);
     if (success) {
-      return NextResponse.json({ success: true, message: "Dados atualizados com sucesso!" });
+      return NextResponse.json({ success: true, message: "Dados atualizados com sucesso na nuvem!" });
     }
     return NextResponse.json(
-      { success: false, message: "Não foi possível gravar no arquivo de dados. Verifique as permissões de gravação." },
+      { success: false, message: "Não foi possível gravar os dados. Verifique a configuração de armazenamento." },
       { status: 500 }
     );
   } catch (error) {

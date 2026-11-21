@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { put } from "@vercel/blob";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
@@ -22,9 +25,27 @@ export async function POST(request: Request) {
       const base = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, "_");
       fileName = `${base}_${Date.now()}${ext}`;
     }
-
-    // Se fileName não tiver barra inicial, garante salvamento dentro de public/images
     const cleanFileName = path.basename(fileName);
+
+    // 1. Se estiver na nuvem da Vercel (BLOB_READ_WRITE_TOKEN presente)
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      try {
+        const blob = await put(`images/${cleanFileName}`, buffer, {
+          access: "public",
+          contentType: file.type || "image/jpeg",
+        });
+
+        return NextResponse.json({
+          success: true,
+          message: "Imagem enviada e hospedada na nuvem com sucesso!",
+          url: blob.url,
+        });
+      } catch (blobErr) {
+        console.error("Erro no upload para Vercel Blob:", blobErr);
+      }
+    }
+
+    // 2. Fallback: Grava no disco local (desenvolvimento / ambiente local)
     const uploadDir = path.join(process.cwd(), "public", "images");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
@@ -36,7 +57,7 @@ export async function POST(request: Request) {
     const publicUrl = `/images/${cleanFileName}`;
     return NextResponse.json({
       success: true,
-      message: "Imagem enviada com sucesso!",
+      message: "Imagem enviada localmente com sucesso!",
       url: publicUrl,
     });
   } catch (error) {
