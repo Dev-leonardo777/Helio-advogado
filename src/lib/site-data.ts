@@ -1,12 +1,15 @@
 import fs from "fs";
 import path from "path";
-import { put, list } from "@vercel/blob";
+import { put, get, list } from "@vercel/blob";
 
-// Caminho local de desenvolvimento
+// Token permanente do Vercel Blob configurado
+const BLOB_TOKEN =
+  process.env.BLOB_READ_WRITE_TOKEN ||
+  "vercel_blob_rw_H4nu1pda7HZ6qsU4_QByC6XqOH5zFaQbmKzT3ci4FrHRyjq";
+
 const localDataPath = path.join(process.cwd(), "src", "data", "content.json");
 const tmpDataPath = path.join("/tmp", "content.json");
 
-// Lê dados locais como fallback seguro
 function getLocalData() {
   try {
     if (fs.existsSync(localDataPath)) {
@@ -21,7 +24,6 @@ function getLocalData() {
   return null;
 }
 
-// Salva localmente
 function saveLocalData(data: Record<string, unknown>): boolean {
   const contentStr = JSON.stringify(data, null, 2);
   try {
@@ -43,60 +45,54 @@ function saveLocalData(data: Record<string, unknown>): boolean {
 }
 
 /**
- * Obtém os dados do site.
- * Se BLOB_READ_WRITE_TOKEN existir (Vercel na nuvem), busca do Vercel Blob com revalidação imediata.
- * Caso contrário, lê do arquivo local do projeto.
+ * Lê os dados atualizados do Vercel Blob (se disponível) ou do arquivo local
  */
 export async function getSiteData() {
-  // 1. Tenta carregar do Vercel Blob se o token estiver configurado
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
+  if (BLOB_TOKEN) {
     try {
-      const { blobs } = await list({ prefix: "site-content.json" });
+      const { blobs } = await list({ prefix: "site-content.json", token: BLOB_TOKEN });
       if (blobs.length > 0) {
-        // Pega o blob mais recente
         const latestBlob = blobs[0];
-        const res = await fetch(`${latestBlob.url}?t=${Date.now()}`, {
-          cache: "no-store",
-        });
-        if (res.ok) {
-          const json = await res.json();
-          return json;
+        const res = await get(latestBlob.url, { access: "private", token: BLOB_TOKEN });
+        if (res && res.stream) {
+          const streamResponse = new Response(res.stream);
+          const text = await streamResponse.text();
+          return JSON.parse(text);
         }
       }
     } catch (blobErr) {
-      console.warn("Aviso ao buscar dados do Vercel Blob, usando fallback local:", blobErr);
+      console.warn("Aviso ao ler do Vercel Blob, usando fallback local:", blobErr);
     }
   }
 
-  // 2. Fallback: Lê do sistema de arquivos local
   return getLocalData();
 }
 
 /**
- * Salva os dados do site.
- * Se BLOB_READ_WRITE_TOKEN existir, salva no Vercel Blob para persistência em nuvem definitiva.
- * Também mantém o arquivo local atualizado quando possível.
+ * Salva os dados no Vercel Blob para persistência em nuvem imediata e perpétua
  */
-export async function saveSiteData(data: Record<string, unknown>): Promise<boolean> {
-  let savedCloud = false;
-
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
+export async function saveSiteData(data: Record<string, unknown>): Promise<{ success: boolean; message: string }> {
+  if (BLOB_TOKEN) {
     try {
       const contentStr = JSON.stringify(data, null, 2);
       await put("site-content.json", contentStr, {
-        access: "public",
+        access: "private",
         addRandomSuffix: false,
+        allowOverwrite: true,
         contentType: "application/json",
         cacheControlMaxAge: 0,
+        token: BLOB_TOKEN,
       });
-      savedCloud = true;
-    } catch (cloudErr) {
-      console.error("Erro ao salvar no Vercel Blob:", cloudErr);
+      // Também atualiza o disco local se possível
+      saveLocalData(data);
+      return { success: true, message: "Todas as alterações foram salvas com sucesso na nuvem!" };
+    } catch (cloudErr: unknown) {
+      const errStr = cloudErr instanceof Error ? cloudErr.message : String(cloudErr);
+      console.error("Erro no Vercel Blob:", errStr);
+      return { success: false, message: `Erro ao salvar na nuvem: ${errStr}` };
     }
   }
 
-  // Também grava local para manter sincronizado quando executado em dev
   const savedLocal = saveLocalData(data);
-
-  return savedCloud || savedLocal;
+  return { success: savedLocal, message: savedLocal ? "Salvo localmente." : "Falha ao gravar arquivo." };
 }
